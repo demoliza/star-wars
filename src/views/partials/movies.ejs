@@ -1,0 +1,22 @@
+<ul class="list-group">
+    <% if(typeof movies === 'object' && movies.length > 0){ %>
+    <% for(let i = 0; i < movies.length; i++) { %>
+        
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold"><%= movies[i].title %></div>
+              <%= movies[i].opening_crawl %><br />
+              <small class="float-end">Add Comment</small>
+            </div>
+            <span class="badge bg-primary rounded-pill">0 Comments</span>
+        </li>
+
+    <% } %>
+    <% } else{ %>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold"><%= movies%></div>
+            </div>
+        </li>
+    <% } %>
+</ul>
