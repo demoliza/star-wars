@@ -32,6 +32,14 @@ class Movie{
 
     return movies;
   }
+
+  //create a comment.
+  async createComment(body) {
+    await db
+      .query("INSERT INTO comments (id, episode_id, comment) VALUES (uuid_generate_v4(), $1, $2)", [body.episode_id,body.comment])
+      .catch(console.log);
+    return;
+  }
 }
 
 module.exports = Movie;

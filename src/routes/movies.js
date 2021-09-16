@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Movie = require('../controllers/Movie');
+const app = express();
 
 //Get all movies.
 router.get('/', async (req,res) => {
@@ -9,7 +10,10 @@ router.get('/', async (req,res) => {
 });
 
 //Create a movie comment.
-router.post('/comment/:id', async (req,res) => {
+router.post('/comment', async (req,res) => {
+    console.log('Content:', req.body);
+    let {episode_id, comment} = req.body;
+    await new Movie().createComment({episode_id, comment},res);
 });
 
 module.exports = router;
