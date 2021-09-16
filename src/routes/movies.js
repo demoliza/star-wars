@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Movie = require('../controllers/Movie');
-const app = express();
+
 
 //Get all movies.
 router.get('/', async (req,res) => {

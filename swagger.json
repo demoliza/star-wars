@@ -1,0 +1,106 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Star Wars Movies App API",
+    "version": "1.0.0",
+    "title": "Star Wars",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "https://max-star-wars.herokuapp.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "movies",
+      "description": "List All Star Wars Movies"
+    },
+    {
+      "name": "comment",
+      "description": "Add Comments to a Movie"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "List all movies",
+        "description": "",
+        "operationId": "listMovies",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          
+        ]
+        }
+    },
+    "/comment": {
+        "get": {
+          "tags": [
+            "comment"
+          ],
+          "summary": "Add Comment",
+          "description": "",
+          "operationId": "addComment",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "in": "episode_id",
+                "name": "episode_id",
+                "description": "Integer",
+                "required": true,
+                "schema": {
+                }
+            },
+            {
+                "in": "comment",
+                "name": "comment",
+                "description": "string",
+                "required": true,
+                "schema": {
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "json"
+            }
+          },
+          "security": [
+            
+          ]
+          }
+      }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
