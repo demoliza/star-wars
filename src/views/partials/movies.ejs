@@ -6,7 +6,7 @@
             <div class="ms-2 me-auto">
               <div class="fw-bold"><%= movies[i].title %></div>
               <%= movies[i].opening_crawl %><br />
-              <small class="float-end">Add Comment</small>
+              <a onclick="document.getElementById('comment-movie-name').innerText('<%= movies[i].title %>')" href="#comment-form"><small class="float-end">Add Comment</small></a>
             </div>
             <span class="badge bg-primary rounded-pill">0 Comments</span>
         </li>

@@ -23,6 +23,10 @@
     {
       "name": "comment",
       "description": "Add Comments to a Movie"
+    },
+    {
+        "name": "characters",
+        "description": "List,Sort& Filter Chatacters"
     }
   ],
   "schemes": [
@@ -57,7 +61,7 @@
         }
     },
     "/comment": {
-        "get": {
+        "post": {
           "tags": [
             "comment"
           ],
@@ -96,8 +100,58 @@
           "security": [
             
           ]
-          }
-      }
+        }
+    },
+    "/characters": {
+        "get": {
+          "tags": [
+            "characters"
+          ],
+          "summary": "List, Sort & Filter Characters",
+          "description": "",
+          "operationId": "listCharacters",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "in": "sortby",
+                "name": "sortby",
+                "description": "String - e.g 'height'",
+                "required": true,
+                "schema": {
+                }
+            },
+            {
+                "in": "filter",
+                "name": "filter",
+                "description": "object - e.g. {'gender':'female', 'name':'Beru Whitesun lars'}",
+                "required": true,
+                "schema": {
+                }
+            },
+            {
+                "in": "order",
+                "name": "order",
+                "description": "string - e.g. 'desc|asc'",
+                "required": true,
+                "schema": {
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "json"
+            }
+          },
+          "security": [
+            
+          ]
+        }
+    }
   },
   "externalDocs": {
     "description": "Find out more about Swagger",

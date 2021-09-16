@@ -9,6 +9,12 @@ router.get('/', async (req,res) => {
     return res.render('home',{movies});
 });
 
+//Get all characters.
+router.get('/characters', async (req,res) => {
+    let characters = await new Movie().getCharacters(req.body);
+    return res.send(characters);
+});
+
 //Create a movie comment.
 router.post('/comment', async (req,res) => {
     console.log('Content:', req.body);

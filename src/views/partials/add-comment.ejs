@@ -1,15 +1,15 @@
-<div class="add-todo">
+<div class="add-comment">
     
-    <h5 class="add-todo-heading">
-        Add a todo.
+    <h5 class="add-comment-heading">
+        Add a comment to <span id="comment-movie-name"></span>
     </h5>
 
-    <form class="add-todo-form" method="POST" action="/todo">
+    <form id="comment-form" class="add-comment-form" method="POST" action="/todo">
 
         <div class="form-group form-title">
 
             <label for="title">
-                Title
+                
             </label>
 
             <input 
@@ -17,7 +17,7 @@
             type="text"
             class="form-control"
             name="title"
-            placeholder="What do you want to do?"
+            placeholder="Type Comment here"
             />
 
         </div>
@@ -25,7 +25,7 @@
         <div class="form-group form-submit">
 
             <button type="submit" class="btn btn-primary">
-                add todo
+                Add
             </button>
 
         </div>
