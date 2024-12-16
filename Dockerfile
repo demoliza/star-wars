@@ -1,31 +1,20 @@
-#
-# Builder stage.
-# This state compile our TypeScript to get the JavaScript code
-#
-FROM node:20 AS builder
+# Use official Node.js LTS image as base
+FROM node:18-alpine
 
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-COPY ./src ./src
-RUN npm install && npm run build
-
-#
-# Production stage.
-# This state compile get back the JavaScript code from builder stage
-# It will also install the production package only
-#
-FROM node:20-alpine
-
+# Set working directory in the container
 WORKDIR /app
-ENV CI=true
-ENV NODE_ENV=production
 
+# Copy package files first (for better caching)
 COPY package*.json ./
-RUN npm install --only=production
 
-## We just need the build to execute the command
-COPY --from=builder /usr/src/app/dist ./dist
+# Install dependencies
+RUN npm ci --only=production
 
-EXPOSE 8080
-CMD ["npm", "start"]
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Command to run the application
+CMD ["node", "src/index.js"]
